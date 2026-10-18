@@ -1,0 +1,44 @@
+:root {
+  --bg: #ffffff; --fg: #1c1f26; --muted: #5b6170; --accent: #0a66c2;
+  --line: #e3e6ec; --panel: #f4f6f9; --button-fg: #ffffff;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #16181d; --fg: #eef0f4; --muted: #a7adba; --accent: #6cb4ff;
+    --line: #2a2e37; --panel: #1e2128; --button-fg: #0d0f13;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #16181d; --fg: #eef0f4; --muted: #a7adba; --accent: #6cb4ff;
+  --line: #2a2e37; --panel: #1e2128; --button-fg: #0d0f13;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+a { color: var(--accent); }
+main, .top, .foot { max-width: 44rem; margin: 0 auto; padding: 0 16px; }
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding-top: 20px; padding-bottom: 12px; }
+.brand { font-weight: 700; color: var(--fg); text-decoration: none; font-size: 1.1rem; }
+.top nav { display: flex; flex-wrap: wrap; gap: 16px; }
+.top nav a { color: var(--muted); text-decoration: none; }
+.top nav a:hover, .top nav a:focus-visible { color: var(--fg); text-decoration: underline; }
+main { padding-bottom: 32px; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 24px 0 8px; }
+h2 { font-size: 1.25rem; margin: 32px 0 8px; }
+p, li { overflow-wrap: break-word; }
+.download { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; margin: 24px 0 8px; }
+.download .note { color: var(--muted); font-size: 0.92rem; margin: 14px 0 0; }
+.button {
+  display: inline-block; margin: 0 8px 8px 0; padding: 12px 20px; border-radius: 999px;
+  background: var(--accent); color: var(--button-fg); font-weight: 600; text-decoration: none;
+}
+.button.secondary { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.button:focus-visible, .top a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.foot { color: var(--muted); font-size: 0.92rem; border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 32px; }
+@media (max-width: 480px) { h1 { font-size: 1.7rem; } }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
+th, td { text-align: left; vertical-align: top; padding: 8px 6px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+th { color: var(--muted); font-weight: 600; }

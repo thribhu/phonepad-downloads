@@ -1,6 +1,6 @@
 #!/bin/bash
 # Builds the PhonePad website (download, support and privacy pages) into _site/ for GitHub Pages.
-# .github/workflows/pages.yml runs this and publishes _site/. Nothing else hosts the site.
+# scripts/publish-site.sh publishes _site/ to the gh-pages branch. Nothing else hosts the site.
 #
 # Sources: scripts/site/ (landing page and template), docs/PRIVACY.md, docs/SUPPORT.md, site/ (static files).
 # The download link points to the newest release's PhonePad-Mac.zip (see publish-mac-release.sh).

@@ -1,9 +1,9 @@
 #!/bin/bash
-# Builds the PhonePad website (download, support and privacy pages) into _site/ for GitHub Pages.
+# Builds the Mouse on Phone website (download, support and privacy pages) into _site/ for GitHub Pages.
 # scripts/publish-site.sh publishes _site/ to the gh-pages branch. Nothing else hosts the site.
 #
 # Sources: scripts/site/ (landing page and template), docs/PRIVACY.md, docs/SUPPORT.md, site/ (static files).
-# The download link points to the newest release's PhonePad-Mac.zip (see publish-mac-release.sh).
+# The download link points to the newest release's Mouse-on-Phone.zip (see publish-mac-release.sh).
 #
 # Usage:  DOWNLOADS_REPO=owner/name scripts/build-site.sh
 #         DOWNLOADS_REPO=owner/name ALLOW_DRAFT=1 scripts/build-site.sh   (a local preview only)
@@ -15,7 +15,7 @@ command -v pandoc >/dev/null || { echo "pandoc is needed: brew install pandoc (o
 OUT=_site
 SRC=scripts/site
 RELEASES_URL="https://github.com/$REPO/releases"
-DOWNLOAD_URL="$RELEASES_URL/latest/download/PhonePad-Mac.zip"
+DOWNLOAD_URL="$RELEASES_URL/latest/download/Mouse-on-Phone.zip"
 ISSUES_URL="https://github.com/$REPO/issues"
 
 # The public pages must not ship a draft notice or template placeholders such as [date].
@@ -40,7 +40,7 @@ render() {   # render <markdown> <output file> <root path> <page title>
         -e "s#@ISSUES_URL@#$ISSUES_URL#g" "$tmp" > "$2"
     rm -f "$tmp"
 }
-render "$SRC/index.md" "$OUT/index.html" "./" "PhonePad for Mac and iPhone"
+render "$SRC/index.md" "$OUT/index.html" "./" "Mouse on Phone"
 render docs/PRIVACY.md "$OUT/privacy/index.html" "../" "Privacy policy"
 render docs/SUPPORT.md "$OUT/support/index.html" "../" "Support"
 echo "Built $OUT/ for $REPO. Preview: python3 -m http.server 8000 --directory $OUT"

@@ -1,15 +1,15 @@
-# PhonePad privacy policy
+# Mouse on Phone privacy policy
 
 **Effective date:** 2026-10-18
 **Publisher:** Thribhuvan Kumar (individual developer)
 
 ## Summary
 
-PhonePad does not collect, sell or share personal data. It works only between your own
+Mouse on Phone does not collect, sell or share personal data. It works only between your own
 devices on your local network or over Bluetooth. We have no server and no account system,
-and we cannot see what you do with PhonePad.
+and we cannot see what you do with Mouse on Phone.
 
-## What PhonePad handles, and where
+## What Mouse on Phone handles, and where
 
 | Data | Where it goes | Kept |
 |---|---|---|
@@ -30,7 +30,7 @@ and we cannot see what you do with PhonePad.
 
 ## Children
 
-PhonePad is not directed at children under 13 and collects no data from anyone.
+Mouse on Phone is not directed at children under 13 and collects no data from anyone.
 
 ## Changes
 

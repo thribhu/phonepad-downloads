@@ -35,7 +35,7 @@ cp -R site/. "$OUT/"
 render() {   # render <markdown> <output file> <root path> <page title>
     local tmp
     tmp=$(mktemp)
-    pandoc --standalone --from markdown --to html5 --wrap=none \
+    pandoc --standalone --from markdown-citations --to html5 --wrap=none \
         --template "$SRC/template.html" --metadata pagetitle="$4" -V root="$3" "$1" -o "$tmp"
     sed -e "s#@DOWNLOAD_URL@#$DOWNLOAD_URL#g" -e "s#@RELEASES_URL@#$RELEASES_URL#g" \
         -e "s#@ISSUES_URL@#$ISSUES_URL#g" "$tmp" > "$2"
@@ -45,8 +45,17 @@ render "$SRC/index.md" "$OUT/index.html" "./" "Mouse on Phone"
 render site/content/PRIVACY.md "$OUT/privacy/index.html" "../" "Privacy policy"
 render site/content/SUPPORT.md "$OUT/support/index.html" "../" "Support"
 python3 scripts/site-release.py --output "$OUT/releases.json" --render "$OUT/index.html"
-if grep -qE '@[A-Z_]+@' "$OUT/index.html"; then
+if grep -qE '@[A-Z_]+@|data-cites="(IOS|MAC)_' "$OUT/index.html"; then
     echo "The website still contains template placeholders." >&2
     exit 1
 fi
+python3 - "$OUT" <<'PY'
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+release = json.loads((root / 'releases.json').read_text())
+html = (root / 'index.html').read_text()
+assert f"iOS {release['ios']['version']}" in html, 'Missing public iOS version'
+assert f"Mac {release['mac']['version']}" in html, 'Missing public Mac version'
+assert release['ios']['url'] in html, 'Missing App Store link'
+PY
 echo "Built $OUT/ for $REPO. Preview: python3 -m http.server 8000 --directory $OUT"

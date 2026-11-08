@@ -3,8 +3,10 @@
 Your iPhone becomes the trackpad, keyboard and remote for your Mac.
 
 <div class="download" id="download">
+<a class="button" href="@APP_STORE_URL@">Download for iPhone</a>
 <a class="button" href="@DOWNLOAD_URL@">Download for Mac</a>
 <a class="button secondary" href="@RELEASES_URL@">All releases</a>
+<p class="note">iOS @IOS_VERSION@ · Released @IOS_RELEASE_DATE@<br><a href="@MAC_RELEASE_URL@">Mac @MAC_VERSION@</a> · Released @MAC_RELEASE_DATE@</p>
 <p class="note">The Mac app needs macOS 14 or later. Apple signs and notarizes each release. To check a download, compare its SHA-256 checksum with the one on the release page.</p>
 </div>
 
@@ -16,7 +18,7 @@ Your iPhone becomes the trackpad, keyboard and remote for your Mac.
 
 ## Set up the iPhone
 
-Get Mouse on Phone from the App Store. On the iPhone, tap **Scan Pairing Code** and scan the code on your Mac.
+Get [Mouse on Phone from the App Store](@APP_STORE_URL@). On the iPhone, tap **Scan Pairing Code** and scan the code on your Mac.
 
 ## What it does
 

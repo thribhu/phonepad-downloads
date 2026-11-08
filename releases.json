@@ -1,0 +1,13 @@
+{
+  "ios": {
+    "version": "1.0",
+    "url": "https://apps.apple.com/app/id6824015332",
+    "released": "2026-11-06"
+  },
+  "mac": {
+    "version": "1.0",
+    "url": "https://github.com/thribhu/phonepad-downloads/releases/tag/v1.0",
+    "released": "2026-10-21",
+    "download": "https://github.com/thribhu/phonepad-downloads/releases/download/v1.0/Mouse-on-Phone.zip"
+  }
+}

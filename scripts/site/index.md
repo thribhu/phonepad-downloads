@@ -5,9 +5,9 @@
     <p class="hero-lead">Use your iPhone as a trackpad and keyboard. See your Mac screen, check a build, or type into the terminal on the same Wi-Fi network.</p>
     <div class="hero-actions">
       <a class="button" href="@APP_STORE_URL@">Download for iPhone</a>
-      <a class="button secondary" href="@DOWNLOAD_URL@">Download for Mac</a>
+      <a class="button secondary" href="@MAC_PREVIEW_DOWNLOAD_URL@">Download Mac preview</a>
     </div>
-    <p class="hero-releases">iOS @IOS_VERSION@ · Released @IOS_RELEASE_DATE@<br><a href="@MAC_RELEASE_URL@">Mac @MAC_VERSION@</a> · Released @MAC_RELEASE_DATE@<br><a href="@RELEASES_URL@">All releases</a></p>
+    <p class="hero-releases"><a href="@MAC_RELEASE_URL@">Mac @MAC_VERSION@</a> · @MAC_RELEASE_STATUS@<br>The Mac preview requires a compatible iPhone beta.</p>
   </div>
   <figure class="hero-preview">
     <a href="screenshots/01.png"><img src="screenshots/01.png" width="1320" height="2868" alt="Any coding agent, any model. The Mac terminal and logos for Codex, Claude Code, and Gemini CLI introduce control for hosted or local models."></a>
@@ -25,7 +25,7 @@ Install Mouse on Phone on both devices. Keep your Mac awake and connect both dev
 ::: {.install-step}
 ### On your Mac
 
-1. [Download the free Mac companion](@DOWNLOAD_URL@). It requires macOS 14 or later.
+1. [Download the stable Mac companion](@DOWNLOAD_URL@) to pair with the App Store iPhone app. It requires macOS 14 or later.
 2. Open the ZIP file, move **Mouse on Phone** to **Applications**, and open it.
 3. Allow **Accessibility** for pointer and keyboard control. Allow **Screen Recording** if you want Live View or a second display.
 4. Click **Pair New iPhone** to show the QR code.

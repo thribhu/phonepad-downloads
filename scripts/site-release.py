@@ -10,6 +10,7 @@ from pathlib import Path
 
 APP_ID = 6824015332
 REPOSITORY = "thribhu/phonepad-downloads"
+MAC_TAG = "v1.2026.074"
 
 
 def read_json(url, token=None):
@@ -26,10 +27,10 @@ def published_releases(apple, github):
     if len(apps) != 1:
         raise ValueError("Apple did not return the expected public app. Keep the existing site.")
     app = apps[0]
-    if github.get("draft") is not False or github.get("prerelease") is not False:
-        raise ValueError("The Mac release must be public and stable.")
+    if github.get("draft") is not False or not isinstance(github.get("prerelease"), bool):
+        raise ValueError("The Mac release must be public.")
     tag = github["tag_name"]
-    if not re.fullmatch(r"v[0-9]+\.[0-9]+(?:\.[0-9]+)?", tag):
+    if tag != MAC_TAG:
         raise ValueError("Unexpected Mac version tag.")
     if not re.fullmatch(r"[0-9]+\.[0-9]+(?:\.[0-9]+)?", app["version"]):
         raise ValueError("Unexpected App Store version.")
@@ -40,22 +41,23 @@ def published_releases(apple, github):
     for name in ["Mouse-on-Phone.zip", "Mouse-on-Phone.zip.sha256"]:
         expected = f"https://github.com/{REPOSITORY}/releases/download/{tag}/{name}"
         if assets.get(name, {}).get("browser_download_url") != expected or assets[name].get("state") != "uploaded":
-            raise ValueError(f"The latest Mac release is missing {name}.")
+            raise ValueError(f"The selected Mac release is missing {name}.")
     return {
         "ios": {"version": app["version"], "url": f"https://apps.apple.com/app/id{APP_ID}",
                 "released": app["currentVersionReleaseDate"][:10]},
         "mac": {"version": tag[1:], "url": release_url, "released": github["published_at"][:10],
-                "download": assets["Mouse-on-Phone.zip"]["browser_download_url"]},
+                "download": assets["Mouse-on-Phone.zip"]["browser_download_url"],
+                "prerelease": github["prerelease"]},
     }
 
 
 def render(path, releases):
+    mac = releases["mac"]
     values = {"@APP_STORE_URL@": releases["ios"]["url"],
-              "@IOS_VERSION@": releases["ios"]["version"],
-              "@IOS_RELEASE_DATE@": releases["ios"]["released"],
-              "@MAC_VERSION@": releases["mac"]["version"],
-              "@MAC_RELEASE_DATE@": releases["mac"]["released"],
-              "@MAC_RELEASE_URL@": releases["mac"]["url"]}
+              "@MAC_VERSION@": mac["version"],
+              "@MAC_RELEASE_STATUS@": "Release candidate" if mac["prerelease"] else f'Released {mac["released"]}',
+              "@MAC_RELEASE_URL@": mac["url"],
+              "@MAC_PREVIEW_DOWNLOAD_URL@": mac["download"]}
     content = path.read_text()
     for key, value in values.items():
         content = content.replace(key, html.escape(value, quote=True))
@@ -70,7 +72,7 @@ if __name__ == "__main__":
     try:
         releases = published_releases(
             read_json(f"https://itunes.apple.com/lookup?id={APP_ID}&country=us"),
-            read_json(f"https://api.github.com/repos/{REPOSITORY}/releases/latest", os.getenv("GH_TOKEN")),
+            read_json(f"https://api.github.com/repos/{REPOSITORY}/releases/tags/{MAC_TAG}", os.getenv("GH_TOKEN")),
         )
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)

@@ -3,7 +3,7 @@
 # The public downloads repository deploys _site/ with its GitHub Pages workflow.
 #
 # Sources: scripts/site/ (landing page and template), site/content/ (published policy/support), site/ (static files).
-# The download link points to the newest release's Mouse-on-Phone.zip (see publish-mac-release.sh).
+# Setup links use the stable Mac release. The homepage also offers the selected Mac preview.
 #
 # Usage:  DOWNLOADS_REPO=owner/name scripts/build-site.sh
 #         DOWNLOADS_REPO=owner/name ALLOW_DRAFT=1 scripts/build-site.sh   (a local preview only)
@@ -56,8 +56,8 @@ import json, pathlib, sys
 root = pathlib.Path(sys.argv[1])
 release = json.loads((root / 'releases.json').read_text())
 html = (root / 'index.html').read_text()
-assert f"iOS {release['ios']['version']}" in html, 'Missing public iOS version'
-assert f"Mac {release['mac']['version']}" in html, 'Missing public Mac version'
-assert release['ios']['url'] in html, 'Missing App Store link'
+assert f'<a href="{release["mac"]["url"]}">Mac {release["mac"]["version"]}</a>' in html, 'Missing public Mac release link'
+assert f'href="{release["mac"]["download"]}">Download Mac preview</a>' in html, 'Missing Mac preview download'
+assert f'href="{release["ios"]["url"]}">Download for iPhone</a>' in html, 'Missing direct App Store link'
 PY
 echo "Built $OUT/ for $REPO. Preview: python3 -m http.server 8000 --directory $OUT"

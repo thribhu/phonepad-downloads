@@ -34,7 +34,8 @@ a { color: var(--accent); text-underline-offset: .18em; }
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
   gap: 0 1.5rem; padding-block: .75rem;
 }
-.brand { font-weight: 750; color: var(--fg); text-decoration: none; font-size: 1.15rem; }
+.brand { display: inline-flex; align-items: center; gap: .55rem; font-weight: 750; color: var(--fg); text-decoration: none; font-size: 1.15rem; }
+.brand img { border-radius: 7px; }
 .top nav { display: flex; flex-wrap: wrap; gap: 0 .9rem; }
 .top nav a {
   display: inline-flex; align-items: center; min-height: 44px;

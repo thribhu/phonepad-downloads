@@ -4,11 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mouse on Phone</title>
+<link rel="icon" type="image/png" href="./app-icon.png">
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="./">Mouse on Phone</a>
+  <a class="brand" href="./">
+    <img src="./app-icon.png" width="32" height="32" alt="">
+    Mouse on Phone
+  </a>
   <nav aria-label="Site">
     <a href="./#download">Download</a>
     <a href="./#setup">Setup</a>
@@ -61,7 +65,7 @@
 <h2 id="remote-setup-with-tailscale">Remote setup with Tailscale</h2>
 <p>Use compatible iPhone and Mac beta builds to test remote access. The public release uses the same Wi-Fi network.</p>
 <ol type="1">
-<li>Install <a href="https://tailscale.com/docs/install/macos">Tailscale on your Mac</a> and <a href="https://tailscale.com/docs/install/ios">iPhone</a>. Sign in to the same Tailscale network on both devices and connect them.</li>
+<li>Install <a href="https://tailscale.com/docs/install/mac">Tailscale on your Mac</a> and <a href="https://tailscale.com/docs/install/ios">iPhone</a>. Sign in to the same Tailscale network on both devices and connect them.</li>
 <li>Keep your Mac awake and open Mouse on Phone. When the Mac detects Tailscale, click <strong>Test Tailscale Pairing</strong>.</li>
 <li>Open Mouse on Phone on your iPhone and scan the Mac’s test QR code.</li>
 <li>Check pointer movement or open your Mac screen from the iPhone. To test away from Wi-Fi, leave Tailscale connected, switch the iPhone to cellular, and repeat the check.</li>

@@ -32,19 +32,20 @@ fi
 rm -rf "$OUT" && mkdir -p "$OUT/faq" "$OUT/privacy" "$OUT/support"
 cp -R site/. "$OUT/"
 
-render() {   # render <markdown> <output file> <root path> <page title>
+render() {   # render <markdown> <output file> <root path> <page title> [layout]
     local tmp
     tmp=$(mktemp)
     pandoc --standalone --from markdown-citations --to html5 --wrap=none \
-        --template "$SRC/template.html" --metadata pagetitle="$4" -V root="$3" "$1" -o "$tmp"
+        --template "$SRC/template.html" --metadata pagetitle="$4" -V root="$3" \
+        -V layout="${5:-document}" "$1" -o "$tmp"
     sed -e "s#@DOWNLOAD_URL@#$DOWNLOAD_URL#g" -e "s#@RELEASES_URL@#$RELEASES_URL#g" \
         -e "s#@ISSUES_URL@#$ISSUES_URL#g" "$tmp" > "$2"
     rm -f "$tmp"
 }
-render "$SRC/index.md" "$OUT/index.html" "./" "Mouse on Phone"
-render "$SRC/faq.md" "$OUT/faq/index.html" "../" "FAQ"
-render site/content/PRIVACY.md "$OUT/privacy/index.html" "../" "Privacy policy"
-render site/content/SUPPORT.md "$OUT/support/index.html" "../" "Support"
+render "$SRC/index.md" "$OUT/index.html" "./" "Mouse on Phone" "home"
+render "$SRC/faq.md" "$OUT/faq/index.html" "../" "FAQ · Mouse on Phone"
+render site/content/PRIVACY.md "$OUT/privacy/index.html" "../" "Privacy policy · Mouse on Phone"
+render site/content/SUPPORT.md "$OUT/support/index.html" "../" "Support · Mouse on Phone"
 python3 scripts/site-release.py --output "$OUT/releases.json" --render "$OUT/index.html"
 if grep -qE '@[A-Z_]+@|data-cites="(IOS|MAC)_' "$OUT/index.html" "$OUT/faq/index.html"; then
     echo "The website still contains template placeholders." >&2

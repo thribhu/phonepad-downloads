@@ -154,7 +154,7 @@ For Mac control, the iPhone and Mac must be able to reach each other on the same
 <details>
 <summary>Can I connect from outside my home or office?</summary>
 
-The supported Mac setup uses the same local network. Use both devices on that network when you need to view or control the Mac.
+The public release uses the same local network. If you have compatible iPhone and Mac beta builds, follow the [Tailscale remote setup guide](../#remote-setup) to test a connection from a different network.
 
 </details>
 

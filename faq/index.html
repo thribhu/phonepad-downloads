@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ · Mouse on Phone</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../">Mouse on Phone</a>
+  <nav aria-label="Site">
+    <a href="../#download">Download</a>
+    <a href="../faq/">FAQ</a>
+    <a href="../support/">Support</a>
+    <a href="../privacy/">Privacy</a>
+  </nav>
+</header>
+<main>
+<section id="mouse-on-phone-faq" class="faq">
+<h1>Mouse on Phone FAQ</h1>
+<nav class="faq-topics" aria-label="FAQ topics">
+<a href="#setup">Setup</a> <a href="#agents">Coding agents</a> <a href="#controls">Mac and iPad</a> <a href="#network">Connections</a> <a href="#privacy">Privacy</a> <a href="#help">Troubleshooting</a>
+</nav>
+<h2 id="setup">Setup</h2>
+<details open>
+<summary>
+What is Mouse on Phone?
+</summary>
+<p>Use your iPhone as a trackpad, keyboard, and remote for your Mac. You can view your Mac screen, use your iPhone as a second display, or use your iPhone as a Bluetooth mouse and keyboard for an iPad.</p>
+</details>
+<details>
+<summary>
+What devices do I need?
+</summary>
+<p>For Mac control, use an iPhone with iOS 16 or later and a Mac with macOS 14 or later. Install <a href="https://apps.apple.com/app/id6824015332">the iPhone app</a> and the <a href="https://github.com/thribhu/phonepad-downloads/releases/latest/download/Mouse-on-Phone.zip">Mac companion</a>. For iPad control, install Mouse on Phone on the iPhone and iPad and pair them over Bluetooth. This setup works without a Mac.</p>
+</details>
+<details>
+<summary>
+How much does it cost?
+</summary>
+<p>The iPhone app is a one-time App Store purchase. See the <a href="https://apps.apple.com/app/id6824015332">App Store listing</a> for your local price. The Mac companion is a free download.</p>
+</details>
+<details>
+<summary>
+How do I pair my iPhone with my Mac?
+</summary>
+<ol type="1">
+<li>Put the iPhone and Mac on the same Wi-Fi network. Keep the Mac awake.</li>
+<li>Open the Mac download, move <strong>Mouse on Phone</strong> to <strong>Applications</strong>, and open it.</li>
+<li>In the Mac app, click <strong>Pair New iPhone</strong>.</li>
+<li>In the iPhone app, tap <strong>Scan Pairing Code</strong> and scan the code shown on your Mac.</li>
+</ol>
+</details>
+<details>
+<summary>
+Which permissions do I need?
+</summary>
+<p>Allow <strong>Local Network</strong> on your iPhone for Mac connections and <strong>Camera</strong> to scan the pairing code. Allow <strong>Accessibility</strong> on your Mac for pointer and keyboard control. Allow <strong>Screen &amp; System Audio Recording</strong> for Live View and the second display. If you use iPad control, allow Bluetooth.</p>
+</details>
+<details>
+<summary>
+How do I update or reinstall the apps?
+</summary>
+<p>On your iPhone, use the App Store. Download the app again with the Apple Account you used to buy it. For the Mac, check the <a href="https://github.com/thribhu/phonepad-downloads/releases">release history</a> and install the new companion in Applications.</p>
+</details>
+<details>
+<summary>
+How can I verify the Mac download?
+</summary>
+<p>Use the <a href="https://github.com/thribhu/phonepad-downloads/releases/latest/download/Mouse-on-Phone.zip">Mac download on this site</a>. The developer signs the app and Apple notarizes it. To check the zip, run <code>shasum -a 256 Mouse-on-Phone.zip</code> in the folder where you saved it. Compare the result with the SHA-256 checksum on the <a href="https://github.com/thribhu/phonepad-downloads/releases">release page</a>.</p>
+</details>
+<h2 id="agents">Coding agents</h2>
+<details>
+<summary>
+Can I control a coding agent running in my terminal?
+</summary>
+<p>Yes. Start your agent on the Mac. On your iPhone, open <strong>Mirror Display</strong> from the trackpad’s display menu to see your Mac and use the keyboard. Tap the terminal window before you type. You can read the output, send a follow-up, or answer a prompt in the same session.</p>
+</details>
+<details>
+<summary>
+Which coding agents and models can I use?
+</summary>
+<p>You can control the terminal session of any coding agent you can run on your Mac, including Codex, Claude Code, Gemini CLI, OpenCode, Grok, or a custom command-line agent. The agent uses its own local or cloud model and its usual settings. Mouse on Phone sends your input to the Mac terminal.</p>
+</details>
+<details>
+<summary>
+Can I work with several agents at once?
+</summary>
+<p>Yes. Run agents in separate terminal windows or tabs on your Mac. Use the trackpad or Mirror Display to select the session you want. You can ask one agent to write a change and another to review it.</p>
+</details>
+<details>
+<summary>
+Do I need an agent account or API key?
+</summary>
+<p>Mouse on Phone requires no sign-up. Set up each agent on your Mac as you normally would. If the agent needs a subscription, account, or API key, use that agent’s own setup.</p>
+</details>
+<details>
+<summary>
+Can I get agent alerts or approve requests in Agent Inbox?
+</summary>
+<p>Agent Inbox and closed-app agent alerts are in development. In test builds, direct actions depend on what the agent and session support. With the public release, use Mirror Display and the keyboard to respond to a request in your Mac terminal.</p>
+</details>
+<h2 id="controls">Mac and iPad controls</h2>
+<details>
+<summary>
+What can I control on my Mac?
+</summary>
+<p>Move the pointer, click, scroll, zoom, type, use keyboard shortcuts, and adjust media playback. Mac controls also give you access to apps, menus, and custom panels. You can enable additional actions, such as scripts and Shortcuts, in the Mac app.</p>
+</details>
+<details>
+<summary>
+What is the difference between Live View and a second display?
+</summary>
+<p>Open <strong>Controls → Live View</strong> to see your Mac screen, a window, or a region. Use the trackpad’s display menu to open <strong>Extend Display</strong> and move a window to your iPhone, or <strong>Mirror Display</strong> to see your existing desktop with keyboard controls.</p>
+</details>
+<details>
+<summary>
+How do I use my iPhone as a Bluetooth mouse and keyboard for my iPad?
+</summary>
+<ol type="1">
+<li>On your iPhone, open Mouse on Phone and tap <strong>Control an iPad over Bluetooth</strong>.</li>
+<li>On your iPad, open Mouse on Phone and choose <strong>Control This iPad → Use an iPhone as the Trackpad</strong>.</li>
+<li>Select your iPhone in the app and accept the pairing request on both devices.</li>
+</ol>
+<p>You can point, click, scroll, type, and use media keys. iPad multi-finger trackpad gestures require an Apple trackpad.</p>
+</details>
+<details>
+<summary>
+Can I switch between devices?
+</summary>
+<p>Yes. Pair each Mac separately. Use the <strong>Devices</strong> button by <strong>Settings</strong> on the iPhone trackpad to switch between Macs and connected iPads. When multiple iPads are connected, your input goes to the one you select.</p>
+</details>
+<details>
+<summary>
+Can I use it with Windows, Linux, Android, or Apple TV?
+</summary>
+<p>The public app supports Mac control and Bluetooth control of an iPad. Windows, Linux, Android, and Apple TV control are outside the public release.</p>
+</details>
+<h2 id="network">Connections</h2>
+<details>
+<summary>
+Do my devices need internet access?
+</summary>
+<p>For Mac control, the iPhone and Mac must be able to reach each other on the same local network. That connection does not require internet access. Downloads and cloud-based coding agents can still need internet. For iPad control, use Bluetooth.</p>
+</details>
+<details>
+<summary>
+Can I connect from outside my home or office?
+</summary>
+<p>The supported Mac setup uses the same local network. Use both devices on that network when you need to view or control the Mac.</p>
+</details>
+<details>
+<summary>
+Does the Mac have to stay awake?
+</summary>
+<p>Yes. Keep the Mac awake and connected to the network while you use the app. If your Mac goes to sleep when you close its lid, reconnect after you wake it.</p>
+</details>
+<details>
+<summary>
+How do I remove a paired iPhone?
+</summary>
+<p>Open Mouse on Phone on the Mac and click <strong>Revoke</strong> next to the iPhone. If you want to connect it later, click <strong>Pair New iPhone</strong> to generate a new code.</p>
+</details>
+<h2 id="privacy">Privacy</h2>
+<details>
+<summary>
+Does Mouse on Phone require an account or collect my data?
+</summary>
+<p>You do not need a Mouse on Phone account. The public release has no ads, analytics, or cross-app tracking. Your keyboard input and Mac screen images travel over an encrypted connection between your paired devices. Crash reports stay on your device until you choose to share them. Read the <a href="../privacy/">privacy policy</a> for details.</p>
+</details>
+<details>
+<summary>
+What can I do if I shared my pairing code?
+</summary>
+<p>Pair your own devices in person. If someone used your code to pair a device, open Mouse on Phone on your Mac and click <strong>Revoke</strong> next to that device.</p>
+</details>
+<details>
+<summary>
+Why does the app ask for camera access?
+</summary>
+<p>The iPhone camera scans the pairing QR code. The app does not store those camera images.</p>
+</details>
+<details>
+<summary>
+Are terms and privacy details available?
+</summary>
+<p>Read <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple’s standard App Store license</a> and the <a href="../privacy/">Mouse on Phone privacy policy</a>.</p>
+</details>
+<h2 id="help">Troubleshooting</h2>
+<details>
+<summary>
+Why can’t my iPhone find my Mac?
+</summary>
+<p>Open Mouse on Phone on your Mac and keep it awake. Put both devices on the same Wi-Fi network. On your iPhone, go to <strong>Settings → Privacy &amp; Security → Local Network</strong> and turn on Mouse on Phone. If you are on guest Wi-Fi, try a network that lets devices communicate with each other.</p>
+</details>
+<details>
+<summary>
+What if the pairing code does not scan?
+</summary>
+<p>On your iPhone, allow camera access for Mouse on Phone. On your Mac, click <strong>Pair New iPhone</strong> for a fresh code. Scan the new code while both devices are on the same Wi-Fi network.</p>
+</details>
+<details>
+<summary>
+What if the app says my iPhone and Mac versions are incompatible?
+</summary>
+<p>Follow the message to update the app on the device it names. Get the iPhone update from the <a href="https://apps.apple.com/app/id6824015332">App Store</a> or the Mac update from the <a href="https://github.com/thribhu/phonepad-downloads/releases/latest/download/Mouse-on-Phone.zip">website download</a>. Reopen both apps and try to connect again.</p>
+</details>
+<details>
+<summary>
+Why does the pointer not move or the keyboard not type?
+</summary>
+<p>On your Mac, open <strong>System Settings → Privacy &amp; Security → Accessibility</strong> and turn on Mouse on Phone. If it is already on, turn it off and back on, then reopen the Mac app. If the app offers <strong>Restart Mouse on Phone</strong>, click it. For typing, click the text field or terminal on your Mac before using the keyboard.</p>
+</details>
+<details>
+<summary>
+Why does typing stop in a password field?
+</summary>
+<p>macOS can block remote keyboard input while secure keyboard entry is active. Type the password on your Mac, then return to the iPhone keyboard.</p>
+</details>
+<details>
+<summary>
+Why is Live View or the second display black?
+</summary>
+<p>On your Mac, open <strong>System Settings → Privacy &amp; Security → Screen &amp; System Audio Recording</strong>, turn on Mouse on Phone, and reopen the app.</p>
+</details>
+<details>
+<summary>
+Why do scripts, Shortcuts, or system actions do nothing?
+</summary>
+<p>Enable the actions you want in Mouse on Phone on your Mac. If macOS asks for permission to control System Events, allow it for the action you are trying to use.</p>
+</details>
+<details>
+<summary>
+Why does my iPhone not appear in the iPad’s Bluetooth settings?
+</summary>
+<p>Start pairing in Mouse on Phone on both devices. The iPhone appears in the app’s device list on your iPad. Turn on Bluetooth on both devices and accept the pairing request when it appears.</p>
+</details>
+<details>
+<summary>
+How do I report a problem?
+</summary>
+<p>Open <strong>Help</strong> in Mouse on Phone or read the <a href="../support/">support guide</a>. If you still need help, <a href="https://github.com/thribhu/phonepad-downloads/issues">open a GitHub issue</a> with the device models, operating system versions, and steps to reproduce the problem. If the app recorded a crash, you can share the report from <strong>Settings → Help → Share Crash Reports</strong>.</p>
+</details>
+</section>
+</main>
+<footer class="foot">
+  <p>Mouse on Phone works only between your own devices. <a href="../privacy/">Privacy policy</a> · <a href="../support/">Support</a></p>
+</footer>
+</body>
+</html>

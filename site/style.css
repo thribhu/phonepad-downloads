@@ -42,3 +42,21 @@ p, li { overflow-wrap: break-word; }
 table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
 th, td { text-align: left; vertical-align: top; padding: 8px 6px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
 th { color: var(--muted); font-weight: 600; }
+.faq-topics {
+  display: flex; flex-wrap: wrap; gap: 4px 20px;
+  margin: 20px 0 32px; padding: 12px 0;
+  border-block: 1px solid var(--line);
+}
+.faq-topics a { display: inline-flex; align-items: center; min-height: 44px; }
+.faq h2 { scroll-margin-block-start: 20px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  cursor: pointer; min-height: 44px; padding: 12px 4px;
+  font-weight: 600; line-height: 1.4;
+}
+.faq summary::marker { color: var(--accent); }
+.faq summary:hover, .faq details[open] > summary { color: var(--accent); }
+.faq summary:focus-visible, .faq a:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
+.faq details > :not(summary) { margin: 0 4px 14px 22px; }

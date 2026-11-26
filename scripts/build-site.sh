@@ -1,5 +1,5 @@
 #!/bin/bash
-# Builds the Mouse on Phone website (download, support and privacy pages) into _site/ for GitHub Pages.
+# Builds the Mouse on Phone website into _site/ for GitHub Pages.
 # The public downloads repository deploys _site/ with its GitHub Pages workflow.
 #
 # Sources: scripts/site/ (landing page and template), site/content/ (published policy/support), site/ (static files).
@@ -21,7 +21,7 @@ ISSUES_URL="https://github.com/$REPO/issues"
 
 # The public pages must not ship a draft notice or template placeholders such as [date].
 if [ "${ALLOW_DRAFT:-}" != 1 ]; then
-    problems=$(grep -niE '^>?[ *#]*draft|^#.*\(draft\)|\[[^]]+\]([^(]|$)' site/content/PRIVACY.md site/content/SUPPORT.md "$SRC/index.md" || true)
+    problems=$(grep -niE '^>?[ *#]*draft|^#.*\(draft\)|\[[^]]+\]([^(]|$)' site/content/PRIVACY.md site/content/SUPPORT.md "$SRC/index.md" "$SRC/faq.md" || true)
     if [ -n "$problems" ]; then
         echo "Remove the draft notice and fill in the placeholders before publishing:"
         echo "$problems"
@@ -29,7 +29,7 @@ if [ "${ALLOW_DRAFT:-}" != 1 ]; then
     fi
 fi
 
-rm -rf "$OUT" && mkdir -p "$OUT/privacy" "$OUT/support"
+rm -rf "$OUT" && mkdir -p "$OUT/faq" "$OUT/privacy" "$OUT/support"
 cp -R site/. "$OUT/"
 
 render() {   # render <markdown> <output file> <root path> <page title>
@@ -42,10 +42,11 @@ render() {   # render <markdown> <output file> <root path> <page title>
     rm -f "$tmp"
 }
 render "$SRC/index.md" "$OUT/index.html" "./" "Mouse on Phone"
+render "$SRC/faq.md" "$OUT/faq/index.html" "../" "FAQ"
 render site/content/PRIVACY.md "$OUT/privacy/index.html" "../" "Privacy policy"
 render site/content/SUPPORT.md "$OUT/support/index.html" "../" "Support"
 python3 scripts/site-release.py --output "$OUT/releases.json" --render "$OUT/index.html"
-if grep -qE '@[A-Z_]+@|data-cites="(IOS|MAC)_' "$OUT/index.html"; then
+if grep -qE '@[A-Z_]+@|data-cites="(IOS|MAC)_' "$OUT/index.html" "$OUT/faq/index.html"; then
     echo "The website still contains template placeholders." >&2
     exit 1
 fi

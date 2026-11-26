@@ -48,7 +48,7 @@ Use the [FAQ to set up an iPad over Bluetooth](faq/#controls) or [get help with 
 
 Use compatible iPhone and Mac beta builds to test remote access. The public release uses the same Wi-Fi network.
 
-1. Install [Tailscale on your Mac](https://tailscale.com/docs/install/macos) and [iPhone](https://tailscale.com/docs/install/ios). Sign in to the same Tailscale network on both devices and connect them.
+1. Install [Tailscale on your Mac](https://tailscale.com/docs/install/mac) and [iPhone](https://tailscale.com/docs/install/ios). Sign in to the same Tailscale network on both devices and connect them.
 2. Keep your Mac awake and open Mouse on Phone. When the Mac detects Tailscale, click **Test Tailscale Pairing**.
 3. Open Mouse on Phone on your iPhone and scan the Mac’s test QR code.
 4. Check pointer movement or open your Mac screen from the iPhone. To test away from Wi-Fi, leave Tailscale connected, switch the iPhone to cellular, and repeat the check.

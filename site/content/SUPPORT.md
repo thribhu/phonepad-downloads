@@ -17,6 +17,8 @@ There are two apps: **Mouse on Phone** on the iPhone or iPad (from the App Store
 3. In the Mac app, click **Pair New iPhone**.
 4. On your iPhone, open Mouse on Phone, tap **Scan Pairing Code**, and scan the code on the Mac.
 
+If you have compatible beta builds on both devices, use the [Tailscale remote setup guide](../#remote-setup).
+
 ## Common questions
 
 **The Mac does not appear on my iPhone.**

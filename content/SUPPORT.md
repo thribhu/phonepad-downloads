@@ -43,8 +43,7 @@ In the Mouse on Phone window on the Mac, click **Revoke** next to the iPhone. To
 again, click Pair New iPhone and scan the new code.
 
 **Is my connection secure?**
-Yes. Only iPhones you pair by scanning the code on your Mac can connect, and all traffic is
-encrypted. Nothing is sent off your local network.
+Yes. The Mac accepts connections from paired iPhones. It encrypts control traffic between devices. See the [privacy policy](../privacy/) for Mac analytics and optional agent alerts.
 
 **Can I control my iPad?**
 Yes. On the iPhone, open Mouse on Phone and tap Control an iPad over Bluetooth. On the iPad, open
